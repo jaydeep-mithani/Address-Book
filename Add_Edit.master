@@ -1,0 +1,87 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Add_Edit.master.cs" Inherits="Add_Edit" EnableTheming="true" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                    <span class="navbar-brand mb-0 h1">Add / Edit Data</span>
+                    <div class="justify-content-end">
+                        <h1 class="display-6"><asp:Label ID="lblWelocme" runat="server"></asp:Label></h1>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                            <li class="nav-item">
+                                <asp:LinkButton ID="lbShowCountry" runat="server" CssClass="nav-link" Text="Countries" PostBackUrl="~/AdminPanel/Country/Add"></asp:LinkButton>
+                            </li>
+                            <li class="nav-item">
+                                <asp:LinkButton ID="lbShowStates" runat="server" CssClass="nav-link" Text="States" PostBackUrl="~/AdminPanel/State/Add"></asp:LinkButton>
+                            </li>
+                            <li class="nav-item">
+                                <asp:LinkButton ID="lbShowCities" runat="server" CssClass="nav-link" Text="Cities" PostBackUrl="~/AdminPanel/City/Add"></asp:LinkButton>
+                            </li>
+                            <li class="nav-item">
+                                <asp:LinkButton ID="lbShowContacts" runat="server" CssClass="nav-link" Text="Contacts" PostBackUrl="~/AdminPanel/Contact/Add"></asp:LinkButton>
+                            </li>
+                            <li class="nav-item">
+                                <asp:LinkButton ID="lbContactCategories" runat="server" CssClass="nav-link" Text="Contact Categories" PostBackUrl="~/AdminPanel/ContactCategory/Add"></asp:LinkButton>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Operations
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                    <li>
+                                        <asp:LinkButton ID="lbSelect" runat="server" class="dropdown-item" PostBackUrl="~/AdminPanel/Country/List">View Data</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lbInsert" runat="server" class="dropdown-item" PostBackUrl="~/AdminPanel/Country/CountryAddEdit.aspx">Insert Data</asp:LinkButton></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <nav class="navbar fixed-bottom navbar-dark bg-dark">
+            <div class="container-fluid justify-content-end">
+                <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="btn btn-outline-light" OnClick="btnLogout_Click" />
+                <%--<a class="navbar-brand" href="#">Footer</a>--%>
+            </div>
+        </nav>
+    </form>
+</body>
+<script src="Scripts/jquery-3.6.0.min.js"></script>
+<script src="Scripts/bootstrap.bundle.min.js"></script>
+<script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+    })
+</script>
+</html>
